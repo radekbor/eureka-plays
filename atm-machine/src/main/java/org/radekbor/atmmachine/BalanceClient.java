@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import java.math.BigDecimal;
 
-@FeignClient(value = "accounts")
+@FeignClient(value = "accounts", fallback = BalanceClientFallback.class)
 public interface BalanceClient {
 
     @GetMapping("/balance/{id}")
